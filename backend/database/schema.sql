@@ -39,15 +39,6 @@ CREATE TABLE user (
   role_id INT NOT NULL DEFAULT 1,
   CONSTRAINT fk_user_role FOREIGN KEY (role_id) REFERENCES role(id));
 
-CREATE TABLE comment (
-  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  content TEXT NOT NULL,
-  date DATETIME NOT NULL,
-  recipe_id INT NOT NULL,
-  CONSTRAINT fk_comment_recipe FOREIGN KEY (recipe_id) REFERENCES recipe(id),
-  user_id INT NOT NULL
-  CONSTRAINT fk_comment_user FOREIGN KEY (user_id) REFERENCES user(id));
-
 CREATE TABLE recipe (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
@@ -61,9 +52,16 @@ CREATE TABLE recipe (
   category_id INT NOT NULL,
   CONSTRAINT fk_recipe_category FOREIGN KEY (category_id) REFERENCES category(id),
   country_id INT NOT NULL,
-  CONSTRAINT fk_recipe_country FOREIGN KEY (country_id) REFERENCES country(id),
-  comment_id INT NOT NULL,
-  CONSTRAINT fk_recipe_comment FOREIGN KEY (comment_id) REFERENCES comment(id));
+  CONSTRAINT fk_recipe_country FOREIGN KEY (country_id) REFERENCES country(id));
+  
+CREATE TABLE comment (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  content TEXT NOT NULL,
+  date DATETIME NOT NULL,
+  recipe_id INT NOT NULL,
+  CONSTRAINT fk_comment_recipe FOREIGN KEY (recipe_id) REFERENCES recipe(id),
+  user_id INT NOT NULL,
+  CONSTRAINT fk_comment_user FOREIGN KEY (user_id) REFERENCES user(id));
 
 CREATE TABLE topic (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -95,10 +93,10 @@ CONSTRAINT fk_recipe_quantity_quantity FOREIGN KEY (quantity_id) REFERENCES quan
 
 CREATE TABLE menu (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  name VARCHAR(30) NOT NULL
-  is_shared BOOLEAN NOT NULL
-  is_approved BOOLEAN NOT NULL
-  topic_id INT NOT NULL
+  name VARCHAR(30) NOT NULL,
+  is_shared BOOLEAN NOT NULL,
+  is_approved BOOLEAN NOT NULL,
+  topic_id INT NOT NULL,
   CONSTRAINT fk_menu_topic FOREIGN KEY (topic_id) REFERENCES topic(id));
 
 CREATE TABLE menu_recipe (
