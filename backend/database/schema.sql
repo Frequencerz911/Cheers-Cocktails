@@ -29,14 +29,15 @@ CREATE TABLE category (
 
 CREATE TABLE user (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  username VARCHAR(20) NOT NULL,
+  firstname VARCHAR(20) NOT NULL,
+  lastname VARCHAR(20) NOT NULL,
+  pseudoname VARCHAR(30)  NOT NULL,
   email VARCHAR(80) NOT NULL,
   password VARCHAR(150) NOT NULL,
-  is_avatar BOOLEAN NOT NULL DEFAULT FALSE,
-  confirmation_email BOOLEAN NOT NULL,
-  date_account_created DATETIME NOT NULL, 
-  last_connection DATETIME NOT NULL, 
-  role_id INT NOT NULL DEFAULT 1,
+  is_avatar BOOLEAN DEFAULT FALSE,
+  date_account_created DATETIME, 
+  last_connection DATETIME, 
+  role_id INT DEFAULT 1,
   CONSTRAINT fk_user_role FOREIGN KEY (role_id) REFERENCES role(id));
 
 CREATE TABLE recipe (
