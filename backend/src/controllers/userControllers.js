@@ -53,7 +53,7 @@ const edit = async (req, res) => {
     const {
       firstname,
       lastname,
-      pseudoname,
+      nickname,
       email,
       password,
       is_avatar: isAvatar,
@@ -66,7 +66,7 @@ const edit = async (req, res) => {
     const affectedRows = await tables.user.edit(userId, {
       firstname,
       lastname,
-      pseudoname,
+      nickname,
       email,
       password,
       isAvatar,

@@ -12,7 +12,7 @@ class UserManager extends AbstractManager {
     const {
       firstname,
       lastname,
-      pseudoname,
+      nickname,
       email,
       password,
       is_avatar: isAvatar,
@@ -22,11 +22,11 @@ class UserManager extends AbstractManager {
     } = user;
 
     const [result] = await this.database.query(
-      `insert into ${this.table} (firstname, lastname, pseudoname, email, password, is_avatar, date_account_created, last_connection, role_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (firstname, lastname, nickname, email, password, is_avatar, date_account_created, last_connection, role_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         firstname,
         lastname,
-        pseudoname,
+        nickname,
         email,
         password,
         isAvatar,
@@ -81,7 +81,7 @@ class UserManager extends AbstractManager {
     const {
       firstname,
       lastname,
-      pseudoname,
+      nickname,
       email,
       password,
       is_avatar: isAvatar,
@@ -92,11 +92,11 @@ class UserManager extends AbstractManager {
 
     // Execute the SQL UPDATE query to modify an existing user in the "user" table
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET firstname = ?, lastname = ?, pseudoname = ?, email = ?, password = ?, is_avatar = ?, date_account_created = ?, last_connection = ?, role_id = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET firstname = ?, lastname = ?, nickname = ?, email = ?, password = ?, is_avatar = ?, date_account_created = ?, last_connection = ?, role_id = ? WHERE id = ?`,
       [
         firstname,
         lastname,
-        pseudoname,
+        nickname,
         email,
         password,
         isAvatar,

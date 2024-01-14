@@ -28,10 +28,18 @@ const seed = async () => {
     // Generating USERS columns
     queries.push(
       database.query(
-        `INSERT INTO user (firstname, lastname, pseudoname, email, password, is_avatar, date_account_created, last_connection, role_id) VALUES
+        `INSERT INTO user (firstname, lastname, nickname, email, password, is_avatar, date_account_created, last_connection, role_id) VALUES
           ('Admin', 'istrator','administrator', 'administrator@email.com', 'blablabla', false, '2000-01-01', '2000-01-02', 3),
           ('Mode', 'rator', 'moderator', 'moderator@email.com', 'blebleble', false, '2010-01-01', '2010-01-02', 2),
           ('Use', 'R', 'user', 'user@email.com', 'bliblibli', false, '2015-01-01', '2015-01-02', 1)`
+      )
+    );
+    // Generating CATEGORIES columns
+    queries.push(
+      database.query(
+        `INSERT INTO category (name) VALUES
+          ('Boisson'),
+          ('Nourriture')`
       )
     );
 
