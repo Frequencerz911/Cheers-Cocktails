@@ -10,6 +10,8 @@ const CategoryManager = require("./models/CategoryManager");
 const UserManager = require("./models/UserManager");
 const RecipeManager = require("./models/RecipeManager");
 const CommentManager = require("./models/CommentManager");
+const TopicManager = require("./models/TopicManager");
+const TypeManager = require("./models/TypeManager");
 const ContactManager = require("./models/ContactManager");
 
 const managers = [
@@ -20,6 +22,8 @@ const managers = [
   UserManager,
   RecipeManager,
   CommentManager,
+  TopicManager,
+  TypeManager,
   ContactManager,
   // Add other managers here
 ];

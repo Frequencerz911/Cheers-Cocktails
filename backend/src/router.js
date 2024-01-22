@@ -66,6 +66,24 @@ router.put("/comments/:id", commentControllers.edit);
 router.post("/comments", commentControllers.add);
 router.delete("/comments/:id", commentControllers.destroy);
 
+const topicControllers = require("./controllers/topicControllers");
+
+router.get("/topics", topicControllers.browse);
+router.get("/topics/:id", topicControllers.read);
+router.get("/topics/:id/field", topicControllers.read);
+router.put("/topics/:id", topicControllers.edit);
+router.post("/topics", topicControllers.add);
+router.delete("/topics/:id", topicControllers.destroy);
+
+const typeControllers = require("./controllers/typeControllers");
+
+router.get("/types", typeControllers.browse);
+router.get("/types/:id", typeControllers.read);
+router.get("/types/:id/field", typeControllers.read);
+router.put("/types/:id", typeControllers.edit);
+router.post("/types", typeControllers.add);
+router.delete("/types/:id", typeControllers.destroy);
+
 const contactControllers = require("./controllers/contactControllers");
 
 router.get("/contacts", contactControllers.browse);
