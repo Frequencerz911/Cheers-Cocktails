@@ -12,6 +12,24 @@ router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
 router.post("/items", itemControllers.add);
 
+const roleControllers = require("./controllers/roleControllers");
+
+router.get("/roles", roleControllers.browse);
+router.get("/roles/:id", roleControllers.read);
+router.get("/roles/:id/field", roleControllers.read);
+router.put("/roles/:id", roleControllers.edit);
+router.post("/roles", roleControllers.add);
+router.delete("/roles/:id", roleControllers.destroy);
+
+const countryControllers = require("./controllers/countryControllers");
+
+router.get("/countries", countryControllers.browse);
+router.get("/countries/:id", countryControllers.read);
+router.get("/countries/:id/field", countryControllers.read);
+router.put("/countries/:id", countryControllers.edit);
+router.post("/countries", countryControllers.add);
+router.delete("/countries/:id", countryControllers.destroy);
+
 const userControllers = require("./controllers/userControllers");
 
 router.get("/users", userControllers.browse);
@@ -38,6 +56,7 @@ router.get("/categories/:id/field", categoryControllers.read);
 router.put("/categories/:id", categoryControllers.edit);
 router.post("/categories", categoryControllers.add);
 router.delete("/categories/:id", categoryControllers.destroy);
+
 /* ************************************************************************* */
 
 module.exports = router;

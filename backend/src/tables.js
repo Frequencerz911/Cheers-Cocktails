@@ -7,12 +7,16 @@ const ItemManager = require("./models/ItemManager");
 const UserManager = require("./models/UserManager");
 const ContactManager = require("./models/ContactManager");
 const CategoryManager = require("./models/CategoryManager");
+const RoleManager = require("./models/RoleManager");
+const CountryManager = require("./models/CountryManager");
 
 const managers = [
   ItemManager,
   UserManager,
   ContactManager,
   CategoryManager,
+  RoleManager,
+  CountryManager,
   // Add other managers here
 ];
 
