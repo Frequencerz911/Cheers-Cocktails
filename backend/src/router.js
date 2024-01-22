@@ -102,6 +102,33 @@ router.put("/ingredients/:id", ingredientControllers.edit);
 router.post("/ingredients", ingredientControllers.add);
 router.delete("/ingredients/:id", ingredientControllers.destroy);
 
+const RecipeIngredientQuantityControllers = require("./controllers/RecipeIngredientQuantityControllers");
+
+router.get(
+  "/RecipesIngredientsQuantities",
+  RecipeIngredientQuantityControllers.browse
+);
+router.get(
+  "/RecipesIngredientsQuantities/:id",
+  RecipeIngredientQuantityControllers.read
+);
+router.get(
+  "/RecipesIngredientsQuantities/:id/field",
+  RecipeIngredientQuantityControllers.read
+);
+router.put(
+  "/RecipesIngredientsQuantities/:id",
+  RecipeIngredientQuantityControllers.edit
+);
+router.post(
+  "/RecipesIngredientsQuantities",
+  RecipeIngredientQuantityControllers.add
+);
+router.delete(
+  "/RecipesIngredientsQuantities/:id",
+  RecipeIngredientQuantityControllers.destroy
+);
+
 const contactControllers = require("./controllers/contactControllers");
 
 router.get("/contacts", contactControllers.browse);
