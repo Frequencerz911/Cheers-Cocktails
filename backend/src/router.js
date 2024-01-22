@@ -84,6 +84,24 @@ router.put("/types/:id", typeControllers.edit);
 router.post("/types", typeControllers.add);
 router.delete("/types/:id", typeControllers.destroy);
 
+const quantityControllers = require("./controllers/quantityControllers");
+
+router.get("/quantities", quantityControllers.browse);
+router.get("/quantities/:id", quantityControllers.read);
+router.get("/quantities/:id/field", quantityControllers.read);
+router.put("/quantities/:id", quantityControllers.edit);
+router.post("/quantities", quantityControllers.add);
+router.delete("/quantities/:id", quantityControllers.destroy);
+
+const ingredientControllers = require("./controllers/ingredientControllers");
+
+router.get("/ingredients", ingredientControllers.browse);
+router.get("/ingredients/:id", ingredientControllers.read);
+router.get("/ingredients/:id/field", ingredientControllers.read);
+router.put("/ingredients/:id", ingredientControllers.edit);
+router.post("/ingredients", ingredientControllers.add);
+router.delete("/ingredients/:id", ingredientControllers.destroy);
+
 const contactControllers = require("./controllers/contactControllers");
 
 router.get("/contacts", contactControllers.browse);

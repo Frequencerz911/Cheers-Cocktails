@@ -12,6 +12,8 @@ const RecipeManager = require("./models/RecipeManager");
 const CommentManager = require("./models/CommentManager");
 const TopicManager = require("./models/TopicManager");
 const TypeManager = require("./models/TypeManager");
+const QuantityManager = require("./models/QuantityManager");
+const IngredientManager = require("./models/IngredientManager");
 const ContactManager = require("./models/ContactManager");
 
 const managers = [
@@ -24,6 +26,8 @@ const managers = [
   CommentManager,
   TopicManager,
   TypeManager,
+  QuantityManager,
+  IngredientManager,
   ContactManager,
   // Add other managers here
 ];
