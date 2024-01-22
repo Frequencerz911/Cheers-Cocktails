@@ -15,6 +15,8 @@ const TypeManager = require("./models/TypeManager");
 const QuantityManager = require("./models/QuantityManager");
 const IngredientManager = require("./models/IngredientManager");
 const RecipeIngredientQuantityManager = require("./models/RecipeIngredientQuantityManager");
+const MenuManager = require("./models/MenuManager");
+const MenuRecipeManager = require("./models/MenuManager");
 const ContactManager = require("./models/ContactManager");
 
 const managers = [
@@ -30,6 +32,8 @@ const managers = [
   QuantityManager,
   IngredientManager,
   RecipeIngredientQuantityManager,
+  MenuManager,
+  MenuRecipeManager,
   ContactManager,
   // Add other managers here
 ];

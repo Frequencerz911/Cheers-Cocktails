@@ -102,32 +102,50 @@ router.put("/ingredients/:id", ingredientControllers.edit);
 router.post("/ingredients", ingredientControllers.add);
 router.delete("/ingredients/:id", ingredientControllers.destroy);
 
-const RecipeIngredientQuantityControllers = require("./controllers/RecipeIngredientQuantityControllers");
+const recipeIngredientQuantityControllers = require("./controllers/recipeIngredientQuantityControllers");
 
 router.get(
-  "/RecipesIngredientsQuantities",
-  RecipeIngredientQuantityControllers.browse
+  "/recipesIngredientsQuantities",
+  recipeIngredientQuantityControllers.browse
 );
 router.get(
-  "/RecipesIngredientsQuantities/:id",
-  RecipeIngredientQuantityControllers.read
+  "/recipesIngredientsQuantities/:id",
+  recipeIngredientQuantityControllers.read
 );
 router.get(
-  "/RecipesIngredientsQuantities/:id/field",
-  RecipeIngredientQuantityControllers.read
+  "/recipesIngredientsQuantities/:id/field",
+  recipeIngredientQuantityControllers.read
 );
 router.put(
-  "/RecipesIngredientsQuantities/:id",
-  RecipeIngredientQuantityControllers.edit
+  "/recipesIngredientsQuantities/:id",
+  recipeIngredientQuantityControllers.edit
 );
 router.post(
-  "/RecipesIngredientsQuantities",
-  RecipeIngredientQuantityControllers.add
+  "/recipesIngredientsQuantities",
+  recipeIngredientQuantityControllers.add
 );
 router.delete(
-  "/RecipesIngredientsQuantities/:id",
-  RecipeIngredientQuantityControllers.destroy
+  "/recipesIngredientsQuantities/:id",
+  recipeIngredientQuantityControllers.destroy
 );
+
+const menuControllers = require("./controllers/menuControllers");
+
+router.get("/menus", menuControllers.browse);
+router.get("/menus/:id", menuControllers.read);
+router.get("/menus/:id/field", menuControllers.read);
+router.put("/menus/:id", menuControllers.edit);
+router.post("/menus", menuControllers.add);
+router.delete("/menus/:id", menuControllers.destroy);
+
+const menuRecipeControllers = require("./controllers/menuRecipeControllers");
+
+router.get("/menusrecipes", menuRecipeControllers.browse);
+router.get("/menusrecipes/:id", menuRecipeControllers.read);
+router.get("/menusrecipes/:id/field", menuRecipeControllers.read);
+router.put("/menusrecipes/:id", menuRecipeControllers.edit);
+router.post("/menusrecipes", menuRecipeControllers.add);
+router.delete("/menusrecipes/:id", menuRecipeControllers.destroy);
 
 const contactControllers = require("./controllers/contactControllers");
 
