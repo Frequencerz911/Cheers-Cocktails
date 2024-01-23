@@ -33,7 +33,7 @@ CREATE TABLE user (
   lastname VARCHAR(20) NOT NULL,
   nickname VARCHAR(30)  NOT NULL,
   email VARCHAR(80) NOT NULL,
-  password VARCHAR(150) NOT NULL,
+  password VARCHAR(20) NOT NULL,
   is_avatar BOOLEAN DEFAULT FALSE,
   date_account_created DATETIME, 
   last_connection DATETIME, 

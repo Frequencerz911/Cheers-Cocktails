@@ -5,7 +5,6 @@ class CategoryManager extends AbstractManager {
     super({ table: "category" });
   }
 
-  // The C of CRUD - Create operation
   async create(categories) {
     const { name, is_alcool: IsAlcool } = categories;
 
@@ -16,7 +15,6 @@ class CategoryManager extends AbstractManager {
     return result.insertId;
   }
 
-  // The Rs of CRUD - Read operations
   async read(id, field) {
     if (field) {
       const [rows] = await this.database.query(
@@ -49,7 +47,6 @@ class CategoryManager extends AbstractManager {
     return rows;
   }
 
-  // The U of CRUD - Update operation
   async edit(id, categories) {
     const { name, is_alcool: IsAlcool } = categories;
 
@@ -61,7 +58,6 @@ class CategoryManager extends AbstractManager {
     return result.affectedRows;
   }
 
-  // The D of CRUD - Delete operation
   async delete(id) {
     await this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id]);
   }
