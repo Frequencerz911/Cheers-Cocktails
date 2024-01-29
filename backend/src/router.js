@@ -2,11 +2,6 @@ const express = require("express");
 
 const router = express.Router();
 
-/* ******************************* auth ****************************** */
-const authControllers = require("./controllers/authControllers");
-
-const { checkDatas } = require("./middlewares/validateLogin");
-
 /* ******************************* item ****************************** */
 const itemControllers = require("./controllers/itemControllers");
 
@@ -173,7 +168,5 @@ router.post("/contacts", contactControllers.add);
 router.delete("/contacts/:id", contactControllers.destroy);
 
 /* ************************************************************************* */
-
-router.post("/auth", checkDatas, authControllers.login);
 
 module.exports = router;

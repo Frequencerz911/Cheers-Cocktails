@@ -6,8 +6,8 @@ DROP TABLE IF EXISTS ingredient;
 DROP TABLE IF EXISTS quantity;
 DROP TABLE IF EXISTS type;
 DROP TABLE IF EXISTS topic;
-DROP TABLE IF EXISTS recipe;
 DROP TABLE IF EXISTS comment;
+DROP TABLE IF EXISTS recipe;
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS country;
@@ -29,40 +29,40 @@ CREATE TABLE category (
 
 CREATE TABLE user (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  firstname VARCHAR(20) NOT NULL,
-  lastname VARCHAR(20) NOT NULL,
-  nickname VARCHAR(30)  NOT NULL,
-  email VARCHAR(80) NOT NULL,
-  password VARCHAR(20) NOT NULL,
-  is_avatar BOOLEAN DEFAULT FALSE,
-  date_account_created DATETIME, 
-  last_connection DATETIME, 
+  firstname VARCHAR(80) NOT NULL,
+  lastname VARCHAR(80) NOT NULL,
+  nickname VARCHAR(80)  NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  avatar VARCHAR(255),
+  date_account_created DATETIME,
+  is_admin BOOLEAN NOT NULL, 
   role_id INT DEFAULT 1,
-  CONSTRAINT fk_user_role FOREIGN KEY (role_id) REFERENCES role(id));
+  FOREIGN KEY (role_id) REFERENCES role(id) ON UPDATE CASCADE);
 
 CREATE TABLE recipe (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  title VARCHAR(30) NOT NULL,
+  title VARCHAR(90) NOT NULL,
   difficulty INT NOT NULL,
   preparation_time VARCHAR(10) NOT NULL,
   is_shared BOOLEAN NOT NULL DEFAULT FALSE,
   is_approved BOOLEAN NOT NULL DEFAULT FALSE,
-  video VARCHAR(150) NOT NULL,
+  video VARCHAR(255) NOT NULL,
   user_id INT NOT NULL,
-  CONSTRAINT fk_recipe_user FOREIGN KEY (user_id) REFERENCES user(id),
+  FOREIGN KEY (user_id) REFERENCES user(id) ON UPDATE CASCADE,
   category_id INT NOT NULL,
-  CONSTRAINT fk_recipe_category FOREIGN KEY (category_id) REFERENCES category(id),
+  FOREIGN KEY (category_id) REFERENCES category(id) ON UPDATE CASCADE,
   country_id INT NOT NULL,
-  CONSTRAINT fk_recipe_country FOREIGN KEY (country_id) REFERENCES country(id));
+  FOREIGN KEY (country_id) REFERENCES country(id) ON UPDATE CASCADE);
   
 CREATE TABLE comment (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   content TEXT NOT NULL,
   date DATETIME NOT NULL,
   recipe_id INT NOT NULL,
-  CONSTRAINT fk_comment_recipe FOREIGN KEY (recipe_id) REFERENCES recipe(id),
+  FOREIGN KEY (recipe_id) REFERENCES recipe(id) ON UPDATE CASCADE,
   user_id INT NOT NULL,
-  CONSTRAINT fk_comment_user FOREIGN KEY (user_id) REFERENCES user(id));
+  FOREIGN KEY (user_id) REFERENCES user(id) ON UPDATE CASCADE);
 
 CREATE TABLE topic (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -77,20 +77,20 @@ CREATE TABLE quantity (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   value VARCHAR(10),
   type_id INT NOT NULL,
-  CONSTRAINT fk_quantity_type FOREIGN KEY (type_id) REFERENCES type(id));  
+  FOREIGN KEY (type_id) REFERENCES type(id) ON UPDATE CASCADE);  
 
 CREATE TABLE ingredient (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   name VARCHAR(80) NOT NULL);
 
 CREATE TABLE recipe_ingredient_quantity (
-id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-recipe_id INT NOT NULL,
-CONSTRAINT fk_recipe_ingredient_recipe FOREIGN KEY (recipe_id) REFERENCES recipe(id),
-ingredient_id INT NOT NULL,
-CONSTRAINT fk_recipe_ingredient_ingredient FOREIGN KEY (ingredient_id) REFERENCES ingredient(id),
-quantity_id INT NOT NULL,
-CONSTRAINT fk_recipe_quantity_quantity FOREIGN KEY (quantity_id) REFERENCES quantity(id));  
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  recipe_id INT NOT NULL,
+  FOREIGN KEY (recipe_id) REFERENCES recipe(id) ON UPDATE CASCADE,
+  ingredient_id INT NOT NULL,
+  FOREIGN KEY (ingredient_id) REFERENCES ingredient(id) ON UPDATE CASCADE,
+  quantity_id INT NOT NULL,
+  FOREIGN KEY (quantity_id) REFERENCES quantity(id) ON UPDATE CASCADE);  
 
 CREATE TABLE menu (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -98,14 +98,14 @@ CREATE TABLE menu (
   is_shared BOOLEAN NOT NULL,
   is_approved BOOLEAN NOT NULL,
   topic_id INT NOT NULL,
-  CONSTRAINT fk_menu_topic FOREIGN KEY (topic_id) REFERENCES topic(id));
+  FOREIGN KEY (topic_id) REFERENCES topic(id) ON UPDATE CASCADE);
 
 CREATE TABLE menu_recipe (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   menu_id INT NOT NULL,
-  CONSTRAINT fk_menu_recipe_menu FOREIGN KEY (menu_id) REFERENCES menu(id),
+  FOREIGN KEY (menu_id) REFERENCES menu(id) ON UPDATE CASCADE,
   recipe_id INT NOT NULL,
-  CONSTRAINT fk_menu_recipe_recipe FOREIGN KEY (recipe_id) REFERENCES recipe(id));
+  FOREIGN KEY (recipe_id) REFERENCES recipe(id) ON UPDATE CASCADE);
 
 CREATE TABLE contact (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,

@@ -43,9 +43,9 @@ const edit = async (req, res) => {
       nickname,
       email,
       password,
-      is_avatar: isAvatar,
+      avatar,
       date_account_created: dateAccountCreated,
-      last_connection: lastConnection,
+      is_admin: isAdmin,
       role_id: roleId,
     } = req.body;
 
@@ -55,9 +55,9 @@ const edit = async (req, res) => {
       nickname,
       email,
       password,
-      isAvatar,
+      avatar,
       dateAccountCreated,
-      lastConnection,
+      isAdmin,
       roleId,
     });
 

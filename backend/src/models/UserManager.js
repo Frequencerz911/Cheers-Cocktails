@@ -12,23 +12,23 @@ class UserManager extends AbstractManager {
       nickname,
       email,
       password,
-      is_avatar: isAvatar,
+      avatar,
       date_account_created: dateAccountCreated,
-      last_connection: lastConnection,
+      is_admin: isAdmin,
       role_id: roleId,
     } = user;
 
     const [result] = await this.database.query(
-      `insert into ${this.table} (firstname, lastname, nickname, email, password, is_avatar, date_account_created, last_connection, role_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (firstname, lastname, nickname, email, password, avatar, date_account_created, is_admin, role_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         firstname,
         lastname,
         nickname,
         email,
         password,
-        isAvatar,
+        avatar,
         dateAccountCreated,
-        lastConnection,
+        isAdmin,
         roleId,
       ]
     );
@@ -76,12 +76,12 @@ class UserManager extends AbstractManager {
       password,
       is_avatar: isAvatar,
       date_account_created: dateAccountCreated,
-      last_connection: lastConnection,
+      is_admin: isAdmin,
       role_id: roleId,
     } = user;
 
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET firstname = ?, lastname = ?, nickname = ?, email = ?, password = ?, is_avatar = ?, date_account_created = ?, last_connection = ?, role_id = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET firstname = ?, lastname = ?, nickname = ?, email = ?, password = ?, is_avatar = ?, date_account_created = ?, is_admin = ?, role_id = ? WHERE id = ?`,
       [
         firstname,
         lastname,
@@ -90,7 +90,7 @@ class UserManager extends AbstractManager {
         password,
         isAvatar,
         dateAccountCreated,
-        lastConnection,
+        isAdmin,
         roleId,
         id,
       ]
