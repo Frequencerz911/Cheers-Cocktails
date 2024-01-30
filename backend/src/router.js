@@ -2,6 +2,13 @@ const express = require("express");
 
 const router = express.Router();
 
+/* ******************************* auth ****************************** */
+const authControllers = require("./controllers/authControllers");
+
+const { checkDatas } = require("./middlewares/auth");
+
+router.post("/auth", checkDatas, authControllers.login);
+
 /* ******************************* item ****************************** */
 const itemControllers = require("./controllers/itemControllers");
 

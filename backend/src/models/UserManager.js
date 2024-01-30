@@ -11,7 +11,7 @@ class UserManager extends AbstractManager {
       lastname,
       nickname,
       email,
-      password,
+      hash_password: hashPassword,
       avatar,
       date_account_created: dateAccountCreated,
       is_admin: isAdmin,
@@ -19,13 +19,13 @@ class UserManager extends AbstractManager {
     } = user;
 
     const [result] = await this.database.query(
-      `insert into ${this.table} (firstname, lastname, nickname, email, password, avatar, date_account_created, is_admin, role_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (firstname, lastname, nickname, email, hash_password, avatar, date_account_created, is_admin, role_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         firstname,
         lastname,
         nickname,
         email,
-        password,
+        hashPassword,
         avatar,
         dateAccountCreated,
         isAdmin,
@@ -67,13 +67,22 @@ class UserManager extends AbstractManager {
     return rows;
   }
 
+  async readByEmail(email) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE email = ?`,
+      [email]
+    );
+
+    return rows[0];
+  }
+
   async edit(id, user) {
     const {
       firstname,
       lastname,
       nickname,
       email,
-      password,
+      hash_password: hashPassword,
       is_avatar: isAvatar,
       date_account_created: dateAccountCreated,
       is_admin: isAdmin,
@@ -81,13 +90,13 @@ class UserManager extends AbstractManager {
     } = user;
 
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET firstname = ?, lastname = ?, nickname = ?, email = ?, password = ?, is_avatar = ?, date_account_created = ?, is_admin = ?, role_id = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET firstname = ?, lastname = ?, nickname = ?, email = ?, hash_password = ?, is_avatar = ?, date_account_created = ?, is_admin = ?, role_id = ? WHERE id = ?`,
       [
         firstname,
         lastname,
         nickname,
         email,
-        password,
+        hashPassword,
         isAvatar,
         dateAccountCreated,
         isAdmin,

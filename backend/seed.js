@@ -59,13 +59,13 @@ const seed = async () => {
 
     queries.push(
       database.query(
-        "INSERT INTO user(firstname, lastname, nickname, email, password, avatar, date_account_created, is_admin, role_id) VALUES (?,?,?,?,?,?,?,?,?)",
+        "INSERT INTO user(firstname, lastname, nickname, email, hash_password, avatar, date_account_created, is_admin, role_id) VALUES (?,?,?,?,?,?,?,?,?)",
         [
           "toto",
           "haricot",
           "thebest",
           "toto@gmail.com",
-          "toto1234",
+          "$argon2id$v=19$m=16,t=2,p=1$c2NjV2d1RzFtcXliTmpzdA$oLu4fGuesF2Ns/mIeHFm7Q",
           "https://pixabay.com/fr/vectors/homme-personne-avatar-visage-156584/",
           "2024/01/29",
           true,
@@ -76,13 +76,13 @@ const seed = async () => {
 
     queries.push(
       database.query(
-        "INSERT INTO user(firstname, lastname, nickname, email, password, avatar, date_account_created, is_admin, role_id) VALUES (?,?,?,?,?,?,?,?,?)",
+        "INSERT INTO user(firstname, lastname, nickname, email, hash_password, avatar, date_account_created, is_admin, role_id) VALUES (?,?,?,?,?,?,?,?,?)",
         [
           "toto",
           "modo",
           "themodo",
           "toto.modo@gmail.com",
-          "toto4321",
+          "$argon2id$v=19$m=16,t=2,p=1$c2NjV2d1RzFtcXliTmpzdA$oLu4fGuesF2Ns/mIeHFm7Q",
           "https://pixabay.com/fr/vectors/homme-personne-avatar-visage-156584/",
           "2024/01/30",
           true,
@@ -94,13 +94,13 @@ const seed = async () => {
     for (let i = 0; i < 10; i += 1) {
       queries.push(
         database.query(
-          "INSERT INTO user(firstname, lastname, nickname, email, password, avatar, date_account_created, is_admin, role_id) VALUES (?,?,?,?,?,?,?,?,?)",
+          "INSERT INTO user(firstname, lastname, nickname, email, hash_password, avatar, date_account_created, is_admin, role_id) VALUES (?,?,?,?,?,?,?,?,?)",
           [
             faker.person.firstName(),
             faker.person.lastName(),
             faker.lorem.word(),
             faker.internet.email(),
-            faker.internet.password(),
+            "$argon2id$v=19$m=16,t=2,p=1$c2NjV2d1RzFtcXliTmpzdA$oLu4fGuesF2Ns/mIeHFm7Q",
             faker.image.avatar(),
             faker.date.past(),
             false,
