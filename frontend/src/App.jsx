@@ -1,10 +1,14 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
+import "./styles/navBar.scss";
+import "./styles/start.scss";
+import "./styles/home.scss";
 
 function App() {
   return (
-    <div className="start">
-      <img className="logo" src="src\assets\img\Logo.png" alt="Logo" />
-    </div>
+    <main>
+      <Outlet />
+    </main>
   );
 }
 

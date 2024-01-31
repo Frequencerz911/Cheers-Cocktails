@@ -1,0 +1,41 @@
+.navbar-ctn {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  background-color: #808080;
+
+  .logo {
+    height: 100%;
+    width: 20%;
+    position: relative;
+  }
+
+  h1 {
+    text-align: center;
+    justify-content: center;
+    color: #00e471;
+    font-size: 3rem;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ul {
+      display: grid;
+      text-align: center;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      list-style-type: none;
+
+      li {
+        a {
+          color: #00e471;
+          font-size: 1.5rem;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
