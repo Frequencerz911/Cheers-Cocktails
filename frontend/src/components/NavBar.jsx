@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function NavBar() {
   return (
     <section className="navbar-ctn">
@@ -6,16 +8,29 @@ export default function NavBar() {
       <nav>
         <ul>
           <li>
-            <a href="/#">Acceuil</a>
+            <Link to="/home" className="btn-link">
+              Acceuil
+            </Link>
           </li>
           <li>
-            <a href="/#">Boisson</a>
+            <Link to="/drink" className="btn-link">
+              Boisson
+            </Link>
           </li>
           <li>
-            <a href="/#">Apéritif</a>
+            <Link to="/food" className="btn-link">
+              Nourriture
+            </Link>
           </li>
           <li>
-            <a href="/#">Contact</a>
+            <Link to="/contact" className="btn-link">
+              Contact
+            </Link>
+          </li>
+          <li>
+            <Link to="/login" className="btn-link">
+              Connexion
+            </Link>
           </li>
         </ul>
       </nav>

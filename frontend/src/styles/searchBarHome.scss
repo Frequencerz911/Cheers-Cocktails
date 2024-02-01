@@ -1,0 +1,13 @@
+.Search-ctn {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 2rem;
+
+  .filter-bar {
+    position: relative;
+    border-radius: 25px;
+    width: 30vw;
+    padding: 15px 65px 15px 50px;
+  }
+}
