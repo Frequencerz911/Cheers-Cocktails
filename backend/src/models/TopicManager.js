@@ -2,14 +2,14 @@ const AbstractManager = require("./AbstractManager");
 
 class TopicManager extends AbstractManager {
   constructor() {
-    super({ table: "Topic" });
+    super({ table: "topic" });
   }
 
-  async create(Topic) {
-    const { name } = Topic;
+  async create(topic) {
+    const { name } = topic;
 
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, Topic_id) values (?, ?)`,
+      `insert into ${this.table} (name, topic_id) values (?, ?)`,
       [name]
     );
 
@@ -47,8 +47,8 @@ class TopicManager extends AbstractManager {
     return rows;
   }
 
-  async edit(id, Topic) {
-    const { name } = Topic;
+  async edit(id, topic) {
+    const { name } = topic;
 
     const [result] = await this.database.query(
       `UPDATE ${this.table} SET name = ? WHERE id = ?`,

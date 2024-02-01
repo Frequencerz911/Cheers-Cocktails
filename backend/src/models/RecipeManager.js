@@ -1,11 +1,11 @@
 const AbstractManager = require("./AbstractManager");
 
-class UserManager extends AbstractManager {
+class RecipeManager extends AbstractManager {
   constructor() {
-    super({ table: "user" });
+    super({ table: "recipe" });
   }
 
-  async create(user) {
+  async create(recipe) {
     const {
       title,
       difficulty,
@@ -16,7 +16,7 @@ class UserManager extends AbstractManager {
       user_id: userId,
       category_id: categoryId,
       country_id: countryId,
-    } = user;
+    } = recipe;
 
     const [result] = await this.database.query(
       `insert into ${this.table} (title, difficulty, preparation_time, is_shared, is_approved, video, user_id, category_id, country_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
@@ -67,7 +67,7 @@ class UserManager extends AbstractManager {
     return rows;
   }
 
-  async edit(id, user) {
+  async edit(id, recipe) {
     const {
       title,
       difficulty,
@@ -78,7 +78,7 @@ class UserManager extends AbstractManager {
       user_id: userId,
       category_id: categoryId,
       country_id: countryId,
-    } = user;
+    } = recipe;
 
     const [result] = await this.database.query(
       `UPDATE ${this.table} SET title = ?, difficulty = ?, preparation_time = ?, is_shared = ?, is_approved = ?, video = ?, user_id = ?, category_id = ?, country_id = ? WHERE id = ?`,
@@ -104,4 +104,4 @@ class UserManager extends AbstractManager {
   }
 }
 
-module.exports = UserManager;
+module.exports = RecipeManager;
