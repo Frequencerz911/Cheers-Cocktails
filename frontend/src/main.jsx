@@ -2,13 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AuthContextProvider } from "./contexts/AuthContext";
 
 import App from "./App";
+
 import Start from "./pages/Start";
-import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Drink from "./pages/Drink";
+import Food from "./pages/Food";
 import Contact from "./pages/Contact";
+import ErrorPage from "./pages/ErrorPage";
+import Register from "./pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +27,18 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/drink",
+        element: <Drink />,
+      },
+      {
+        path: "/food",
+        element: <Food />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
       {
         path: "/login",
@@ -39,6 +56,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthContextProvider>
+      <RouterProvider router={router} />
+    </AuthContextProvider>
   </React.StrictMode>
 );

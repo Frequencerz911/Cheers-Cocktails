@@ -1,10 +1,13 @@
 import { Outlet } from "react-router-dom";
-import "./App.css";
+import "./styles/App.scss";
 import "./styles/navBar.scss";
 import "./styles/start.scss";
 import "./styles/home.scss";
-import "./styles/searchBarHome.scss";
+import "./styles/searchBar.scss";
 import "./styles/login.scss";
+import "./styles/contact.scss";
+import "./styles/card.scss";
+import "./styles/register.scss";
 
 function App() {
   return <Outlet />;

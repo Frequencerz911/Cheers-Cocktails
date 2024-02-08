@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
   return (
     <section className="navbar-ctn">
-      <img className="logo" src="./src/assets/img/Logo.png" alt="Logo" />
+      <img className="logo" src="./src/assets/img/Logo.svg" alt="Logo" />
       <h1>Cheers&Cocktails</h1>
       <nav>
         <ul>

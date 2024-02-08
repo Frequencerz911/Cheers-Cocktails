@@ -1,4 +1,5 @@
-import SearchBarHome from "../components/homepage/SearchBarHome";
+import Card from "../components/Card";
+import SearchBar from "../components/SearchBar";
 
 import NavBar from "../components/NavBar";
 
@@ -8,9 +9,14 @@ export default function Home() {
       <header>
         <NavBar />
       </header>
+      <SearchBar />
       <main>
-        <SearchBarHome />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </main>
+      <footer>blabla</footer>
     </div>
   );
 }

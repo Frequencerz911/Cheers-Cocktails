@@ -112,7 +112,9 @@ const seed = async () => {
 
     queries.push(
       database.query(
-        `INSERT INTO recipe (title, difficulty, preparation_time, is_shared, is_approved, video, user_id, category_id, country_id) VALUES ('Supreme Buddha Bowl', 2, '25min', true, true, "hthththth", 1, 1, 1)`
+        `INSERT INTO recipe (title, difficulty, preparation_time, is_shared, is_approved, video, user_id, category_id, country_id) VALUES 
+        ('Supreme Buddha Bowl', 2, '25min', true, true, "hthththth", 1, 1, 1),
+        ('Americano', 1, '5min', true, true, "blabla", 2, 2, 3)`
       )
     );
     for (let i = 0; i < 5; i += 1) {

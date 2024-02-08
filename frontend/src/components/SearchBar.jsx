@@ -1,4 +1,4 @@
-export default function NavBar() {
+export default function SearchBar() {
   return (
     <section className="Search-ctn">
       <input

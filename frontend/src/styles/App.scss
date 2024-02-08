@@ -1,0 +1,14 @@
+@import "../styles/variables.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: $color;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

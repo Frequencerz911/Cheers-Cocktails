@@ -1,8 +1,10 @@
+@import "./variables.scss";
+
 .navbar-ctn {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  background-color: #808080;
+  background-color: $color1;
 
   .logo {
     height: 100%;
@@ -12,8 +14,10 @@
 
   h1 {
     text-align: center;
+    background: linear-gradient(0.25turn, $color4, 10%, $color3, $color2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     justify-content: center;
-    color: #00e471;
     font-size: 3rem;
   }
 
@@ -31,7 +35,9 @@
 
       li {
         a {
-          color: #00e471;
+          background: linear-gradient(0.25turn, $color4, 10%, $color3, $color2);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
           font-size: 1.5rem;
           text-decoration: none;
         }
