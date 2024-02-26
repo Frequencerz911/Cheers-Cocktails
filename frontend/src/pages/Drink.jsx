@@ -1,3 +1,5 @@
+import Footer from "../components/Footer";
+import Card from "../components/Card";
 import NavBar from "../components/NavBar";
 import SearchBar from "../components/SearchBar";
 
@@ -7,9 +9,20 @@ export default function Drink() {
       <header>
         <NavBar />
       </header>
-      <main>
-        <SearchBar />
+      <SearchBar />
+      <main className="drink-main">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

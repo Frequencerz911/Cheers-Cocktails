@@ -2,6 +2,7 @@ import Card from "../components/Card";
 import SearchBar from "../components/SearchBar";
 
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -10,13 +11,15 @@ export default function Home() {
         <NavBar />
       </header>
       <SearchBar />
-      <main>
+      <main className="home-main">
         <Card />
         <Card />
         <Card />
         <Card />
       </main>
-      <footer>blabla</footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

@@ -8,6 +8,8 @@ import "./styles/login.scss";
 import "./styles/contact.scss";
 import "./styles/card.scss";
 import "./styles/register.scss";
+import "./styles/food.scss";
+import "./styles/drink.scss";
 
 function App() {
   return <Outlet />;

@@ -65,7 +65,7 @@ const seed = async () => {
           "haricot",
           "thebest",
           "toto@gmail.com",
-          "$argon2id$v=19$m=16,t=2,p=1$c2NjV2d1RzFtcXliTmpzdA$oLu4fGuesF2Ns/mIeHFm7Q",
+          "$argon2id$v=19$m=16,t=2,p=1$bUFLWWhGNkRqVnVTVGk4Tw$IZyOm0JMZGhP+a0yWfGZtg",
           "https://pixabay.com/fr/vectors/homme-personne-avatar-visage-156584/",
           "2024/01/29",
           true,

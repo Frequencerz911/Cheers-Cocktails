@@ -30,20 +30,6 @@ function AuthContextProvider({ children }) {
     handleAuth();
   }, []);
 
-  // sert pour les className
-  function userMode() {
-    if (user.is_administrator === 1) {
-      return "administrator";
-    }
-    if (user.is_administrator === 2) {
-      return "moderator";
-    }
-    if (user.is_administrator === 3) {
-      return "user";
-    }
-    return "";
-  }
-
   const handleLogout = () => {
     localStorage.removeItem("token");
     setUser({ is_administrator: 3 });
@@ -54,10 +40,9 @@ function AuthContextProvider({ children }) {
       user,
       setUser,
       handleAuth,
-      userMode,
       handleLogout,
     }),
-    [user, setUser, handleAuth, userMode, handleLogout]
+    [user, setUser, handleAuth, handleLogout]
   );
 
   return (
