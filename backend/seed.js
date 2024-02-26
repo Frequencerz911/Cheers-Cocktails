@@ -65,7 +65,7 @@ const seed = async () => {
           "haricot",
           "thebest",
           "toto@gmail.com",
-          "$argon2id$v=19$m=16,t=2,p=1$c2NjV2d1RzFtcXliTmpzdA$oLu4fGuesF2Ns/mIeHFm7Q",
+          "$argon2id$v=19$m=16,t=2,p=1$bUFLWWhGNkRqVnVTVGk4Tw$IZyOm0JMZGhP+a0yWfGZtg",
           "https://pixabay.com/fr/vectors/homme-personne-avatar-visage-156584/",
           "2024/01/29",
           true,
@@ -112,7 +112,9 @@ const seed = async () => {
 
     queries.push(
       database.query(
-        `INSERT INTO recipe (title, difficulty, preparation_time, is_shared, is_approved, video, user_id, category_id, country_id) VALUES ('Supreme Buddha Bowl', 2, '25min', true, true, "hthththth", 1, 1, 1)`
+        `INSERT INTO recipe (title, difficulty, preparation_time, is_shared, is_approved, video, user_id, category_id, country_id) VALUES 
+        ('Supreme Buddha Bowl', 2, '25min', true, true, "hthththth", 1, 1, 1),
+        ('Americano', 1, '5min', true, true, "blabla", 2, 2, 3)`
       )
     );
     for (let i = 0; i < 5; i += 1) {
