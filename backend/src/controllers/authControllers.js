@@ -1,4 +1,3 @@
-
 const { hash, verify, argon2id } = require("argon2");
 
 const jwt = require("jsonwebtoken");
@@ -36,7 +35,6 @@ const add = (req, res) => {
 const login = async (req, res, next) => {
   const { email, password } = req.body;
   try {
-
     const [users] = await tables.user.readByEmail(email);
 
     if (users == null) {
@@ -57,7 +55,6 @@ const login = async (req, res, next) => {
       // .cookie("user token", token, {
       // httpOnly: true,
       // });
-
     } else {
       res.sendStatus(422);
     }

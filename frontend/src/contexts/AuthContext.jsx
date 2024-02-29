@@ -30,6 +30,16 @@ function AuthContextProvider({ children }) {
     handleAuth();
   }, []);
 
+  function userMode() {
+    if (user.is_administrator === 2) {
+      return "modo-mode";
+    }
+    if (user.is_administrator === 1) {
+      return "admin-mode";
+    }
+    return "";
+  }
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     setUser({ is_administrator: 3 });
@@ -40,6 +50,7 @@ function AuthContextProvider({ children }) {
       user,
       setUser,
       handleAuth,
+      userMode,
       handleLogout,
     }),
     [user, setUser, handleAuth, handleLogout]
