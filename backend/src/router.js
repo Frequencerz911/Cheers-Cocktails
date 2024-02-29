@@ -5,9 +5,10 @@ const router = express.Router();
 /* ******************************* auth ****************************** */
 const authControllers = require("./controllers/authControllers");
 
-const { checkDatas } = require("./middlewares/auth");
+const { checkDatas, hashPassword } = require("./middlewares/auth");
 
 router.post("/auth", checkDatas, authControllers.login);
+router.post("/register", authControllers.add);
 
 /* ******************************* item ****************************** */
 const itemControllers = require("./controllers/itemControllers");
@@ -53,7 +54,7 @@ router.get("/users", userControllers.browse);
 router.get("/users/:id", userControllers.read);
 router.get("/users/:id/field", userControllers.read);
 router.put("/users/:id", userControllers.edit);
-router.post("/users", userControllers.add);
+router.post("/users", hashPassword, userControllers.add);
 router.delete("/users/:id", userControllers.destroy);
 
 /* ******************************* recipe ****************************** */
