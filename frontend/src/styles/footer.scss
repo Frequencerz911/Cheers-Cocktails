@@ -1,0 +1,23 @@
+@import "./variables.scss";
+
+footer {
+  margin-top: 2rem;
+  background-color: $color1;
+  text-align: center;
+
+  p {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: lightgray;
+    font-size: 3rem;
+  }
+
+  a {
+    color: $color4;
+  }
+
+  a:hover {
+    color: $color3;
+  }
+}
