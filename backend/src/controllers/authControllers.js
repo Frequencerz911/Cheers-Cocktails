@@ -1,4 +1,6 @@
+
 const { hash, verify, argon2id } = require("argon2");
+
 const jwt = require("jsonwebtoken");
 
 const tables = require("../tables");
@@ -34,16 +36,18 @@ const add = (req, res) => {
 const login = async (req, res, next) => {
   const { email, password } = req.body;
   try {
+
     const [users] = await tables.user.readByEmail(email);
+
     if (users == null) {
       res.sendStatus(422);
       return;
     }
+
     const verified = await verify(users.hash_password, password);
 
     if (verified) {
       delete users.hash_password;
-
       const token = jwt.sign({ user_id: users.id }, process.env.JWT_SECRET, {
         expiresIn: "1h",
       });
@@ -53,6 +57,7 @@ const login = async (req, res, next) => {
       // .cookie("user token", token, {
       // httpOnly: true,
       // });
+
     } else {
       res.sendStatus(422);
     }
@@ -60,7 +65,6 @@ const login = async (req, res, next) => {
     next(err);
   }
 };
-
 module.exports = {
   add,
   login,
