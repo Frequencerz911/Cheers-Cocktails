@@ -45,7 +45,7 @@ export default function Register() {
     setErrMessage("");
     try {
       const resregister = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/users`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/register`,
         registerInfo
       );
 

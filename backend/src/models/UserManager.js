@@ -11,11 +11,10 @@ class UserManager extends AbstractManager {
       lastname,
       nickname,
       email,
-      hash_password: hashPassword,
+      hashPassword,
       avatar,
       date_account_created: dateAccountCreated,
       is_admin: isAdmin,
-      role_id: roleId,
     } = user;
 
     const [result] = await this.database.query(
@@ -29,7 +28,7 @@ class UserManager extends AbstractManager {
         avatar,
         dateAccountCreated,
         isAdmin,
-        roleId,
+        3,
       ]
     );
 
