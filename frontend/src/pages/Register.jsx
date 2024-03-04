@@ -30,7 +30,6 @@ export default function Register() {
   const handleRegister = async (event) => {
     event.preventDefault();
     const { firstname, lastname, nickname, password, email } = registerInfo;
-    console.info(registerInfo);
     if (
       firstname === "" ||
       lastname === "" ||
