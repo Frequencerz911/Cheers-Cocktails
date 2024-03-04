@@ -45,7 +45,6 @@ const edit = async (req, res) => {
       hash_password: hashPassword,
       avatar,
       date_account_created: dateAccountCreated,
-      is_admin: isAdmin,
       role_id: roleId,
     } = req.body;
 
@@ -57,7 +56,6 @@ const edit = async (req, res) => {
       hashPassword,
       avatar,
       dateAccountCreated,
-      isAdmin,
       roleId,
     });
 
