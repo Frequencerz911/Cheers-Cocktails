@@ -5,61 +5,18 @@ class ContactManager extends AbstractManager {
     super({ table: "contact" });
   }
 
-  async create(contact) {
-    const { email, object, message, is_read: IsRead } = contact;
-
-    const [result] = await this.database.query(
-      `insert into ${this.table} (email, object, message, is_read ) values (?, ?, ?, ?)`,
-      [email, object, message, IsRead]
+  insert(contact) {
+    return this.connection.query(
+      `insert into ${this.table} (email, object, message) values (?, ?, ?)`,
+      [contact.email, contact.object, contact.message]
     );
-
-    return result.insertId;
   }
 
-  async read(id, field) {
-    if (field) {
-      const [rows] = await this.database.query(
-        `SELECT ?? FROM ${this.table} WHERE id = ?`,
-        [field, id]
-      );
-
-      if (rows.length === 0) {
-        return null;
-      }
-
-      return rows[0][field];
-    }
-
-    const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table} WHERE id = ?`,
-      [id]
+  update(contact) {
+    return this.connection.query(
+      `update ${this.table} set is_read = ? where id = ?`,
+      [contact.is_read, contact.id]
     );
-
-    if (rows.length === 0) {
-      return null;
-    }
-
-    return rows[0];
-  }
-
-  async readAll() {
-    const [rows] = await this.database.query(`select * from ${this.table}`);
-    return rows;
-  }
-
-  async edit(id, contact) {
-    const { email, object, message, is_read: IsRead } = contact;
-
-    const [result] = await this.database.query(
-      `UPDATE ${this.table} SET email = ?, object = ?, message = ?, is_read = ? WHERE id = ?`,
-      [email, object, message, IsRead, id]
-    );
-
-    return result.affectedRows;
-  }
-
-  async delete(id) {
-    await this.database.query(`delete from ${this.table} where id = ?`, [id]);
   }
 }
 
