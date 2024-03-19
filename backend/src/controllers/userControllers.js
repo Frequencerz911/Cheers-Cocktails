@@ -29,7 +29,9 @@ const read = async (req, res, next) => {
   }
 };
 
-const edit = async (req, res, next) => {
+const edit = async (req, res) => {
+  const userId = req.params.id;
+
   try {
     if (!req.body) {
       return res.status(400).json({ message: "Empty body" });
@@ -59,15 +61,13 @@ const edit = async (req, res, next) => {
 
     if (affectedRows === 0) {
       return res.status(500).json({ message: "Update fail" });
-
-    const result = await tables.user.update(req.params.id, req.body);
-    if (result.affectedRows === 0) {
-      res.sendStatus(404);
-    } else {
-      res.sendStatus(204);
     }
-  } catch (err) {
-    next(err);
+
+    const editedUser = await tables.user.read(userId);
+    return res.json({ message: "Updated", user: editedUser });
+  } catch (error) {
+    console.error("Error updating user", error);
+    return res.status(500).json({ message: "Error updating user" });
   }
 };
 
