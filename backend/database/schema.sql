@@ -36,7 +36,6 @@ CREATE TABLE user (
   hash_password VARCHAR(255) NOT NULL,
   avatar VARCHAR(255),
   date_account_created DATETIME,
-  is_admin BOOLEAN NOT NULL, 
   role_id INT DEFAULT 1,
   FOREIGN KEY (role_id) REFERENCES role(id) ON UPDATE CASCADE);
 

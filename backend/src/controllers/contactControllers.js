@@ -1,15 +1,13 @@
 const tables = require("../tables");
 
-const browse = (req, res) => {
-  tables.contact
-    .findAll()
-    .then(([rows]) => {
-      res.send(rows);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
+const browse = async (req, res, next) => {
+  try {
+    const users = await tables.contact.readAll();
+
+    res.json(users);
+  } catch (err) {
+    next(err);
+  }
 };
 
 const read = (req, res) => {

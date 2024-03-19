@@ -14,12 +14,11 @@ class UserManager extends AbstractManager {
       hash_password: hashPassword,
       avatar,
       date_account_created: dateAccountCreated,
-      is_admin: isAdmin,
       role_id: roleId,
     } = user;
 
     const [result] = await this.database.query(
-      `insert into ${this.table} (firstname, lastname, nickname, email, hash_password, avatar, date_account_created, is_admin, role_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (firstname, lastname, nickname, email, hash_password, avatar, date_account_created, role_id) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         firstname,
         lastname,
@@ -28,7 +27,6 @@ class UserManager extends AbstractManager {
         hashPassword,
         avatar,
         dateAccountCreated,
-        isAdmin,
         roleId,
       ]
     );
@@ -85,12 +83,11 @@ class UserManager extends AbstractManager {
       hash_password: hashPassword,
       is_avatar: isAvatar,
       date_account_created: dateAccountCreated,
-      is_admin: isAdmin,
       role_id: roleId,
     } = user;
 
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET firstname = ?, lastname = ?, nickname = ?, email = ?, hash_password = ?, is_avatar = ?, date_account_created = ?, is_admin = ?, role_id = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET firstname = ?, lastname = ?, nickname = ?, email = ?, hash_password = ?, is_avatar = ?, date_account_created = ?, role_id = ? WHERE id = ?`,
       [
         firstname,
         lastname,
@@ -99,7 +96,6 @@ class UserManager extends AbstractManager {
         hashPassword,
         isAvatar,
         dateAccountCreated,
-        isAdmin,
         roleId,
         id,
       ]

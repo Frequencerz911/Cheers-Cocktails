@@ -11,6 +11,7 @@ import "./styles/register.scss";
 import "./styles/food.scss";
 import "./styles/drink.scss";
 import "./styles/error.scss";
+import "./styles/profile.scss";
 
 function App() {
   return <Outlet />;

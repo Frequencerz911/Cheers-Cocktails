@@ -1,9 +1,10 @@
 @import "./variables.scss";
 
 footer {
-  margin-top: 2rem;
+  margin-top: auto;
   background-color: $color1;
   text-align: center;
+  width: 100%;
 
   p {
     display: flex;

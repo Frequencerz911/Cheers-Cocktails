@@ -14,6 +14,7 @@ import Food from "./pages/Food";
 import Contact from "./pages/Contact";
 import ErrorPage from "./pages/ErrorPage";
 import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },

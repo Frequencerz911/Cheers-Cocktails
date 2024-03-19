@@ -28,7 +28,7 @@ export default function Login() {
         );
 
         if (data) {
-          return navigate("/users/admin");
+          return navigate("/home");
         }
       } catch (error) {
         console.warn("Une erreur est survenue!", error);
@@ -98,10 +98,8 @@ export default function Login() {
             Inscrit toi ici !
           </Link>{" "}
         </div>
-      </section>
-      <footer>
         <Footer />
-      </footer>
+      </section>
     </>
   );
 }
