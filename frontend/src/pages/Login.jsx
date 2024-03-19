@@ -98,10 +98,8 @@ export default function Login() {
             Inscrit toi ici !
           </Link>{" "}
         </div>
-      </section>
-      <footer>
         <Footer />
-      </footer>
+      </section>
     </>
   );
 }

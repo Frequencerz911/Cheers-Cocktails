@@ -36,6 +36,7 @@ const login = async (req, res, next) => {
   const { email, password } = req.body;
   try {
     const users = await tables.user.readByEmail(email);
+
     if (users == null) {
       res.sendStatus(422);
       return;

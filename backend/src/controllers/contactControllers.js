@@ -2,82 +2,78 @@ const tables = require("../tables");
 
 const browse = async (req, res, next) => {
   try {
-    const contacts = await tables.contact.readAll();
+    const users = await tables.contact.readAll();
 
-    res.json(contacts);
+    res.json(users);
   } catch (err) {
     next(err);
   }
 };
 
-const read = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const { field } = req.query;
-
-    const contact = await tables.contact.read(id);
-
-    if (field && contact && contact[field]) {
-      res.json({ [field]: contact[field] });
-    } else if (contact) {
-      res.json(contact);
-    } else {
-      res.sendStatus(404);
-    }
-  } catch (err) {
-    next(err);
-  }
-};
-
-const edit = async (req, res) => {
-  const contactId = req.params.id;
-
-  try {
-    if (!req.body) {
-      return res.status(400).json({ message: "Empty body" });
-    }
-
-    const { email, object, message, is_read: IsRead } = req.body;
-
-    const affectedRows = await tables.contact.edit(contactId, {
-      email,
-      object,
-      message,
-      IsRead,
+const read = (req, res) => {
+  tables.contact
+    .find(req.params.id)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows[0]);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
     });
-
-    if (affectedRows === 0) {
-      return res.status(500).json({ message: "Update fail" });
-    }
-
-    const editedContact = await tables.contact.read(contactId);
-    return res.json({ message: "Updated", contact: editedContact });
-  } catch (error) {
-    console.error("Error updating contact", error);
-    return res.status(500).json({ message: "Error updating contact" });
-  }
 };
 
-const add = async (req, res, next) => {
+const edit = (req, res) => {
   const contact = req.body;
 
-  try {
-    const insertId = await tables.contact.create(contact);
+  contact.id = parseInt(req.params.id, 10);
 
-    res.status(201).json({ insertId });
-  } catch (err) {
-    next(err);
-  }
+  tables.contact
+    .update(contact)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
 };
 
-const destroy = async (req, res, next) => {
-  try {
-    await tables.contact.delete(req.params.id);
+const add = (req, res) => {
+  const contact = req.body;
 
-    res.sendStatus(204);
-  } catch (err) {
-    next(err);
-  }
+  tables.contact
+    .insert(contact)
+    .then(([result]) => {
+      res.location(`/contacts/${result.insertId}`).sendStatus(201);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const destroy = (req, res) => {
+  tables.contact
+    .delete(req.params.id)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
 };
 
 module.exports = {

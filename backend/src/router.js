@@ -2,14 +2,6 @@ const express = require("express");
 
 const router = express.Router();
 
-/* ******************************* auth ****************************** */
-const authControllers = require("./controllers/authControllers");
-
-const { checkDatas, hashPassword } = require("./middlewares/auth");
-
-router.post("/auth", checkDatas, authControllers.login);
-router.post("/register", authControllers.add);
-
 /* ******************************* item ****************************** */
 const itemControllers = require("./controllers/itemControllers");
 
@@ -46,6 +38,14 @@ router.get("/categories/:id/field", categoryControllers.read);
 router.put("/categories/:id", categoryControllers.edit);
 router.post("/categories", categoryControllers.add);
 router.delete("/categories/:id", categoryControllers.destroy);
+
+/* ******************************* auth ****************************** */
+const authControllers = require("./controllers/authControllers");
+
+const { checkDatas, hashPassword } = require("./middlewares/auth");
+
+router.post("/auth", checkDatas, authControllers.login);
+router.post("/register", authControllers.add);
 
 /* ******************************* User ****************************** */
 const userControllers = require("./controllers/userControllers");

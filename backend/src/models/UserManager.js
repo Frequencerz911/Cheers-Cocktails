@@ -14,6 +14,8 @@ class UserManager extends AbstractManager {
       hashPassword,
       avatar,
       date_account_created: dateAccountCreated,
+      role_id: roleId,
+
     } = user;
 
     const [result] = await this.database.query(
@@ -26,6 +28,7 @@ class UserManager extends AbstractManager {
         hashPassword,
         avatar,
         dateAccountCreated,
+        roleId,
         3,
       ]
     );
@@ -74,11 +77,38 @@ class UserManager extends AbstractManager {
   }
 
   async edit(id, user) {
+
+    const {
+      firstname,
+      lastname,
+      nickname,
+      email,
+      hash_password: hashPassword,
+      is_avatar: isAvatar,
+      date_account_created: dateAccountCreated,
+      role_id: roleId,
+    } = user;
+
+    const [result] = await this.database.query(
+      `UPDATE ${this.table} SET firstname = ?, lastname = ?, nickname = ?, email = ?, hash_password = ?, is_avatar = ?, date_account_created = ?, role_id = ? WHERE id = ?`,
+      [
+        firstname,
+        lastname,
+        nickname,
+        email,
+        hashPassword,
+        isAvatar,
+        dateAccountCreated,
+        roleId,
+        id,
+      ]
+      
     const { nickname, is_avatar: isAvatar } = user;
 
     const [result] = await this.database.query(
       `UPDATE ${this.table} SET nickname = ?, is_avatar = ? WHERE id = ?`,
       [nickname, isAvatar, id]
+
     );
 
     return result.affectedRows;
