@@ -6,7 +6,7 @@ export default function Users() {
   const [users, setUsers] = useState([]);
   const [filter, setFilter] = useState({ nickname: "" });
 
-  const fetchUsersData = async () => {
+  const UsersData = async () => {
     try {
       const response = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}/api/users`
@@ -51,7 +51,7 @@ export default function Users() {
   });
 
   useEffect(() => {
-    fetchUsersData();
+    UsersData();
   }, []);
 
   return (

@@ -77,9 +77,30 @@
       padding: 1rem;
       margin: 0;
       width: 20%;
-      height: 50%;
+      height: 70%;
       background: $color1;
       cursor: pointer;
+
+      .logout {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        font-size: 3rem;
+        color: $color3;
+        margin-top: 2rem;
+        height: 3rem;
+
+        button {
+          background-color: $color3;
+          cursor: pointer;
+          height: 100%;
+
+          &:hover {
+            background-color: $color4;
+          }
+        }
+      }
     }
   }
 }

@@ -6,8 +6,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  h1 {
+  overflow-y: hidden;
+  .h1-ctn {
     margin-top: 9rem;
     text-align: center;
     font-size: 3.5rem;
@@ -58,7 +58,8 @@
     color: $color3;
     width: 20%;
     border-radius: 15px;
-    margin-top: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     background-color: $color1;
   }
   .btn-send:hover {

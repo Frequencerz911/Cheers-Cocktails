@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 import ErrorPage from "./pages/ErrorPage";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import { RecipeProvider } from "./contexts/RecipeContext";
 
 const router = createBrowserRouter([
   {
@@ -62,7 +63,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AuthContextProvider>
-      <RouterProvider router={router} />
+      <RecipeProvider>
+        <RouterProvider router={router} />
+      </RecipeProvider>
     </AuthContextProvider>
   </React.StrictMode>
 );

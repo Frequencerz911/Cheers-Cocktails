@@ -1,28 +1,16 @@
 import Footer from "../components/Footer";
-import Card from "../components/Card";
 import NavBar from "../components/NavBar";
 import SearchBar from "../components/SearchBar";
+import RecipeCtn from "../components/recipeCtn";
 
 export default function Drink() {
   return (
     <div className="drink">
-      <header>
-        <NavBar />
-      </header>
+      <NavBar />
       <SearchBar />
-      <main className="drink-main">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      <h1>Vous avez soif ? Alors vous êtes au bon endroit.</h1>
+      <RecipeCtn />
+      <Footer />
     </div>
   );
 }

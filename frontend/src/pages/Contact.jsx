@@ -39,7 +39,7 @@ export default function Contact() {
   return (
     <div className="contact">
       <NavBar />
-      <h1>Contactez-nous</h1>
+      <h1 className="h1-ctn">Contactez-nous</h1>
       <form className="form-ctn" method="post">
         <label form="email">
           <h2>Email:</h2>

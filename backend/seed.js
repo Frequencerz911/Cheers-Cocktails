@@ -110,7 +110,14 @@ const seed = async () => {
     queries.push(
       database.query(
         `INSERT INTO recipe (title, difficulty, preparation_time, is_shared, is_approved, video, user_id, category_id, country_id) VALUES 
-        ('Supreme Buddha Bowl', 2, '25min', true, true, "hthththth", 1, 1, 1),
+        ('abbey cocktail', 2, '7min', true, true, "hthththth", 1, 1, 1),
+        ('Absolutly screwed up', 3, '10min', true, true, "hthththth", 1, 1, 1),
+        ('Ace', 5, '12min', true, true, "hthththth", 1, 1, 1),
+        ('Mango orange smoothie', 1, '5min', true, true, "hthththth", 1, 1, 1),
+        ('Melya', 5, '12min', true, true, "hthththth", 1, 1, 1),
+        ('Scottish highland liqueur', 2, '7min', true, true, "hthththth", 1, 1, 1),
+        ('Sea breeze', 4, 'min', true, true, "hthththth", 1, 1, 1),
+        ('Sex on the beach', 4, '10min', true, true, "hthththth", 1, 1, 1),
         ('Americano', 1, '5min', true, true, "blabla", 2, 2, 3)`
       )
     );

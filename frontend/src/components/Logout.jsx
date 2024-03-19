@@ -9,21 +9,16 @@ export default function Logout() {
   return (
     <section className="backdrop">
       <div className="logout">
-        <h2 className={userMode()}>
-          Etes-vous sûr de vouloir vous déconnecter ?
-        </h2>
-        <div>
-          <button
-            type="button"
-            className={userMode()}
-            onClick={() => {
-              handleLogout();
-              navigate("/");
-            }}
-          >
-            Me déconnecter
-          </button>
-        </div>
+        <button
+          type="button"
+          className={userMode()}
+          onClick={() => {
+            handleLogout();
+            navigate("/");
+          }}
+        >
+          Me déconnecter
+        </button>
       </div>
     </section>
   );
