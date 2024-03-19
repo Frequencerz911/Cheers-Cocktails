@@ -14,13 +14,13 @@ const add = (req, res) => {
     parallelism: 1,
   };
 
-  hash(password, hashingOptions).then((hashedPassword) => {
-    const user = { ...req.body, hashedPassword };
+  hash(password, hashingOptions).then((hashPassword) => {
+    const user = { ...req.body, hashPassword };
 
-    tables.users
-      .insert(user)
-      .then(([rows]) => {
-        if (rows.affectedRows === 1) {
+    tables.user
+      .create(user)
+      .then((rows) => {
+        if (rows !== undefined) {
           return res.status(201).json({ success: "User saved!" });
         }
         return res.status(403).json({ error: "An error has occured!" });

@@ -10,7 +10,6 @@ function AuthContextProvider({ children }) {
 
   const handleAuth = async () => {
     const getToken = localStorage.getItem("token");
-
     if (getToken) {
       const decodeToken = jwtDecode(getToken);
       const userId = decodeToken.user_id;
