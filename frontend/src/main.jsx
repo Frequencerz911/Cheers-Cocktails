@@ -14,8 +14,12 @@ import Food from "./pages/Food";
 import Contact from "./pages/Contact";
 import ErrorPage from "./pages/ErrorPage";
 import Register from "./pages/Register";
-import Profile from "./pages/Profile";
+import Profile from "./pages/admin/ProfileA";
 import { RecipeProvider } from "./contexts/RecipeContext";
+import Logout from "./components/Logout";
+import Recipes from "./pages/admin/AddRecipe";
+import ManageContact from "./pages/admin/ManageContact";
+import ProfileU from "./pages/ProfileU";
 
 const router = createBrowserRouter([
   {
@@ -51,8 +55,24 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/profile",
+        path: "/user/profil",
         element: <Profile />,
+      },
+      {
+        path: "/user/recipe",
+        element: <Recipes />,
+      },
+      {
+        path: "/user/contact",
+        element: <ManageContact />,
+      },
+      {
+        path: "/profil",
+        element: <ProfileU />,
+      },
+      {
+        path: "/user/logout",
+        element: <Logout />,
       },
     ],
   },

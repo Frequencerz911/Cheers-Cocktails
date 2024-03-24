@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import NavBar from "../components/NavBar";
+import NavBar from "../../components/NavBar";
 
 export default function Users() {
   const [users, setUsers] = useState([]);

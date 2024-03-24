@@ -30,6 +30,9 @@ function AuthContextProvider({ children }) {
   }, []);
 
   function userMode() {
+    if (user.is_administrator === 3) {
+      return "user-mode";
+    }
     if (user.is_administrator === 2) {
       return "modo-mode";
     }

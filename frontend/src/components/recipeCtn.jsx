@@ -44,7 +44,6 @@ export default function RecipeCtn() {
           />{" "}
           <p>Difficulté: {recipe.difficulty}</p>
           <p>Temps de préparation: {recipe.preparation_time}</p>
-          <p>Créateur: {user.nickname}</p>
         </div>
       ))}
       <button type="button" className="carousel" onClick={nextSlide}>

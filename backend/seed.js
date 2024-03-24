@@ -114,9 +114,9 @@ const seed = async () => {
         ('Absolutly screwed up', 3, '10min', true, true, "hthththth", 1, 1, 1),
         ('Ace', 5, '12min', true, true, "hthththth", 1, 1, 1),
         ('Mango orange smoothie', 1, '5min', true, true, "hthththth", 1, 1, 1),
-        ('Melya', 5, '12min', true, true, "hthththth", 1, 1, 1),
+        ('Melya', 5, '12min', false, true, "hthththth", 1, 1, 1),
         ('Scottish highland liqueur', 2, '7min', true, true, "hthththth", 1, 1, 1),
-        ('Sea breeze', 4, 'min', true, true, "hthththth", 1, 1, 1),
+        ('Sea breeze', 4, 'min', true, false, "hthththth", 1, 1, 1),
         ('Sex on the beach', 4, '10min', true, true, "hthththth", 1, 1, 1),
         ('Americano', 1, '5min', true, true, "blabla", 2, 2, 3)`
       )

@@ -63,7 +63,9 @@ class RecipeManager extends AbstractManager {
   }
 
   async readAll() {
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(
+      `select recipe.id, title, difficulty, preparation_time, is_shared, is_approved, video, user_id, category_id, country_id, nickname from ${this.table} join user on user.id = recipe.user_id`
+    );
     return rows;
   }
 

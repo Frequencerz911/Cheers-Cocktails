@@ -52,10 +52,15 @@ function RecipeProvider({ children }) {
     }
   };
 
-  const updateRecipes = async () => {
+  const updateRecipes = async (Recipe) => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/recipes`
+        `${import.meta.env.VITE_BACKEND_URL}/api/recipes`,
+        {
+          ...Recipe,
+          is_shared: Recipe.isShared ? 1 : 0,
+          is_approved: Recipe.isShared ? 1 : 0,
+        }
       );
 
       if (response.status === 200) {
@@ -90,7 +95,8 @@ function RecipeProvider({ children }) {
         `${import.meta.env.VITE_BACKEND_URL}/api/recipes`,
         {
           ...recipe,
-          is_free: recipe.isFree ? 1 : 0,
+          is_shared: recipe.isShared ? 1 : 0,
+          is_approved: recipe.isShared ? 1 : 0,
         },
         {
           headers: {
