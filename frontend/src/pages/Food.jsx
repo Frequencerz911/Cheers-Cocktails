@@ -6,7 +6,9 @@ export default function Food() {
   return (
     <div className="food">
       <NavBar />
-      <h1>Vous avez faim ? Alors vous êtes au bon endroit.</h1>
+      <h1 className="title-food">
+        Vous avez faim ? Alors vous êtes au bon endroit.
+      </h1>
       <RecipeCtn />
       <Footer />
     </div>
