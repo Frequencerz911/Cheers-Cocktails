@@ -20,7 +20,7 @@ export default function NavBar() {
         <Link to="/" className="nav-logo">
           <img className="logo" src={logoImg} alt="Logo" />
         </Link>
-        <h1>Cheers&Cocktails</h1>
+        <h1 className="title">Cheers&Cocktails</h1>
         <div className="menu-icon" onClick={handleClick} aria-hidden="true">
           <img
             src={click ? logoClose : logoBurger}
@@ -28,7 +28,7 @@ export default function NavBar() {
           />
         </div>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
-          <p>Bonjour {user.nickname}</p>
+          {user.id ? <p>Bonjour {user.nickname}</p> : ""}
           <li className="nav-item">
             <Link
               to="/home"
@@ -84,50 +84,66 @@ export default function NavBar() {
               Connexion
             </Link>
           </li>
-          <li className="nav-item">
-            <Link
-              to="/profil"
-              className="nav-link"
-              onClick={() => {
-                setClick(false);
-              }}
-            >
-              ProfilU
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="/user/recipe"
-              className="nav-link"
-              onClick={() => {
-                setClick(false);
-              }}
-            >
-              recipeM
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="/user/contact"
-              className="nav-link"
-              onClick={() => {
-                setClick(false);
-              }}
-            >
-              contactM
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="/user/profil"
-              className="nav-link"
-              onClick={() => {
-                setClick(false);
-              }}
-            >
-              ProfilA
-            </Link>
-          </li>
+          {user.role_id === 3 ? (
+            <li className="nav-item">
+              <Link
+                to="/profil"
+                className="nav-link"
+                onClick={() => {
+                  setClick(false);
+                }}
+              >
+                Profil
+              </Link>
+            </li>
+          ) : (
+            ""
+          )}
+          {user.role_id === 1 ? (
+            <li className="nav-item">
+              <Link
+                to="/user/recipe"
+                className="nav-link"
+                onClick={() => {
+                  setClick(false);
+                }}
+              >
+                Recipe
+              </Link>
+            </li>
+          ) : (
+            ""
+          )}
+          {user.role_id === 1 ? (
+            <li className="nav-item">
+              <Link
+                to="/user/contact"
+                className="nav-link"
+                onClick={() => {
+                  setClick(false);
+                }}
+              >
+                Contact
+              </Link>
+            </li>
+          ) : (
+            ""
+          )}
+          {user.role_id === 1 ? (
+            <li className="nav-item">
+              <Link
+                to="/user/profil"
+                className="nav-link"
+                onClick={() => {
+                  setClick(false);
+                }}
+              >
+                Profil
+              </Link>
+            </li>
+          ) : (
+            ""
+          )}
           {user.id ? <Logout /> : ""}
           {user.role_id === 3 ? <Logout /> : ""}
         </ul>

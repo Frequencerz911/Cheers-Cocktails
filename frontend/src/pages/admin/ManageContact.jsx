@@ -63,7 +63,7 @@ export default function ManageContact() {
       <input
         className="filter-contact"
         type="text"
-        placeholder="Filter by Email"
+        placeholder="Filtrer par Email"
         value={filter.firstname}
         onChange={(e) => handleFilterChange(e, "email")}
       />

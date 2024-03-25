@@ -61,7 +61,7 @@ export default function Recipes() {
       <input
         className="filter-recipes"
         type="text"
-        placeholder="Filter by title"
+        placeholder="Filtrer par Titre"
         value={filter.firstname}
         onChange={(e) => handleFilterChange(e, "title")}
       />
