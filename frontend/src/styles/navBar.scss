@@ -70,6 +70,11 @@
         &:hover {
           color: $color4;
         }
+        @media screen and (max-width: 1500px) {
+          margin-top: 15rem;
+          font-size: 1rem;
+          margin-top: 2rem;
+        }
       }
     }
 
