@@ -61,7 +61,7 @@ export default function Users() {
       <input
         className="filter-users"
         type="text"
-        placeholder="Filter by Firstname"
+        placeholder="Filtrer par Prénom"
         value={filter.firstname}
         onChange={(e) => handleFilterChange(e, "firstname")}
       />
