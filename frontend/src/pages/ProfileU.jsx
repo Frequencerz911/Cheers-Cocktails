@@ -23,20 +23,56 @@ export default function ProfileU() {
     setEditInfo({ ...editInfo, [name]: value });
   };
 
-  const deleteUsers = async (id) => {
-    try {
-      const response = await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`
-      );
+  // const deleteUsers = async (id) => {
+  //   try {
+  //     const response = await axios.delete(
+  //       `${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`
+  //     );
 
-      if (response.status !== 200) {
-        console.error("Server response:", response.statusText);
-        return;
-      }
-      setUser({});
-    } catch (err) {
-      console.error(err.message);
+  //     if (response.status !== 200) {
+  //       console.error("Server response:", response.statusText);
+  //       return;
+  //     }
+  //     setUser({});
+  //   } catch (err) {
+  //     console.error(err.message);
+  //   }
+  // };
+
+  const handleSubmitInfo = (e) => {
+    e.preventDefault();
+
+    const { email, nickname, firstname, lastname } = editInfo;
+
+    if (
+      email === "" ||
+      nickname === "" ||
+      firstname === "" ||
+      lastname === ""
+    ) {
+      return;
     }
+
+    axios
+      .put(`${import.meta.env.VITE_BACKEND_URL}/api/users/${user.id}`, editInfo)
+      .then(() => {
+        setUser({
+          ...user,
+          email,
+          nickname,
+          firstname,
+          lastname,
+        });
+        setEditInfo({
+          email: editInfo.email,
+          nickname: editInfo.nickname,
+          firstname: editInfo.email,
+          lastname: editInfo.nickname,
+          password: "",
+          confirmPassword: "",
+        });
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -105,21 +141,27 @@ export default function ProfileU() {
               onChange={handleEditInfo}
             />
           </label>
-          <button type="button">modifier le compte</button>
-          <button type="button" onClick={deleteUsers(user.id)}>
-            Supprimer le compte
-          </button>
           <button
             type="button"
-            className={userMode()}
-            onClick={() => {
-              handleLogout();
-              navigate("/login");
-            }}
+            className="update"
+            onClick={(e) => handleSubmitInfo(e)}
           >
-            Me déconnecter
+            modifier le compte
           </button>
         </form>
+        {/* <button type="button" onClick={() => deleteUsers(user.id)}>
+          Supprimer le compte
+        </button> */}
+        <button
+          type="button"
+          className={userMode()}
+          onClick={() => {
+            handleLogout();
+            navigate("/login");
+          }}
+        >
+          Me déconnecter
+        </button>
       </section>
     </>
   );

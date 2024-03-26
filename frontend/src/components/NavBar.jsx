@@ -84,7 +84,7 @@ export default function NavBar() {
               Connexion
             </Link>
           </li>
-          {user.role_id === 3 ? (
+          {user.id ? (
             <li className="nav-item">
               <Link
                 to="/profil"
@@ -93,7 +93,7 @@ export default function NavBar() {
                   setClick(false);
                 }}
               >
-                Profil
+                Modifier Profil
               </Link>
             </li>
           ) : (
