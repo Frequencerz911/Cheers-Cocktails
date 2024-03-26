@@ -82,20 +82,20 @@ class UserManager extends AbstractManager {
       nickname,
       email,
       hash_password: hashPassword,
-      is_avatar: isAvatar,
+      avatar,
       date_account_created: dateAccountCreated,
       role_id: roleId,
     } = user;
 
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET firstname = ?, lastname = ?, nickname = ?, email = ?, hash_password = ?, is_avatar = ?, date_account_created = ?, role_id = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET firstname = ?, lastname = ?, nickname = ?, email = ?, hash_password = ?, avatar = ?, date_account_created = ?, role_id = ? WHERE id = ?`,
       [
         firstname,
         lastname,
         nickname,
         email,
         hashPassword,
-        isAvatar,
+        avatar,
         dateAccountCreated,
         roleId,
         id,

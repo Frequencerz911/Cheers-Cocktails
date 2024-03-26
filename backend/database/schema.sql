@@ -33,7 +33,7 @@ CREATE TABLE user (
   lastname VARCHAR(80) NOT NULL,
   nickname VARCHAR(80)  NOT NULL,
   email VARCHAR(80) NOT NULL UNIQUE,
-  hash_password VARCHAR(255) NOT NULL,
+  hash_password VARCHAR(255),
   avatar VARCHAR(255),
   date_account_created DATETIME,
   role_id INT DEFAULT 1,

@@ -36,6 +36,22 @@
     }
   }
 
+  .update {
+    cursor: pointer;
+    height: 3rem;
+    color: $color3;
+    width: 20%;
+    border-radius: 15px;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+    background-color: $color1;
+
+    &:hover {
+      color: $color4;
+      background-color: $color;
+    }
+  }
+
   button {
     cursor: pointer;
     height: 3rem;
@@ -43,7 +59,7 @@
     width: 20%;
     border-radius: 15px;
     margin-top: 0.2rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 1rem;
     background-color: $color1;
 
     &:hover {
