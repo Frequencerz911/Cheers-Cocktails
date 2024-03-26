@@ -6,14 +6,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: hidden;
+
   .h1-ctn {
-    margin-top: 9rem;
+    margin-top: 10rem;
     text-align: center;
     font-size: 3.5rem;
     background: linear-gradient(0.25turn, $color4, 10%, $color3, $color2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    @media screen and (max-width: 1500px) {
+      font-size: 2rem;
+    }
   }
 
   h2 {
@@ -30,6 +33,9 @@
     align-items: center;
     width: 100%;
     gap: 2rem;
+    @media screen and (max-width: 1500px) {
+      gap: 1rem;
+    }
 
     label {
       display: flex;
@@ -42,12 +48,22 @@
         height: 3rem;
         border-radius: 15px;
         background-color: lightgray;
+
+        @media screen and (max-width: 1500px) {
+          height: 2rem;
+          width: 20%;
+        }
       }
 
       textarea {
         background-color: lightgray;
         width: 50%;
         height: 10rem;
+
+        @media screen and (max-width: 1500px) {
+          height: 8rem;
+          width: 30%;
+        }
       }
     }
   }

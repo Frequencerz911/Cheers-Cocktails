@@ -37,6 +37,11 @@
       height: 3rem;
       border-radius: 15px;
       background-color: lightgray;
+
+      @media screen and (max-width: 1500px) {
+        height: 2rem;
+        width: 20%;
+      }
     }
   }
 
